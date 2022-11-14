@@ -18,12 +18,32 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        title: 'Text Editor',
+      }),
+      new GenerateSW(),
+      new WebpackPwaManifest({
+        name: 'Text Editor',
+        short_name: 'TextEditor',
+        description: 'Keep track of important tasks!',
+        background_color: '#7eb4e2',
+        theme_color: '#7eb4e2',
+        start_url: './',
+        publicPath: './',
+        icons: [
+          {
+            src: path.resolve('assets/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
+          },
+        ],
+      }),
     ],
 
     module: {
       rules: [
-        
+
       ],
     },
   };
