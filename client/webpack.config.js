@@ -20,7 +20,7 @@ module.exports = () => {
         title: 'Text Editor',
       }),
       new InjectManifest({
-        swSrc: './src/sw.js',
+        swSrc: './src-sw.js',
         swDest: 'service-worker.js',
       }),
       new WebpackPwaManifest({
@@ -33,7 +33,7 @@ module.exports = () => {
         publicPath: './',
         icons: [
           {
-            src: path.resolve('assets/images/logo.png'),
+            src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
           },
